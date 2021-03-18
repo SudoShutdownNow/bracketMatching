@@ -15,13 +15,13 @@ bool matching()
 			break;
 		}
 
-		if (temp == '{' || temp == '[' || temp == '(')//如果是左大中小括号
+		if (temp == '{' || temp == '[' || temp == '(')//如果是左括号，把它放到栈里
 		{
 			left.push(temp);
 		}
-		else
+		else//否则的话
 		{
-			switch (temp) 
+			switch (temp) //如果读取到右括号，检查栈最前面的括号和他是否匹配
 			{
 				case '}':
 					if ((left.top()) == '{')
@@ -44,7 +44,7 @@ bool matching()
 						continue;
 					}
 					break;
-				default:
+				default://如果是其他字符，略过
 					break;
 			}
 		}
